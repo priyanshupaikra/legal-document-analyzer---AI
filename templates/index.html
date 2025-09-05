@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto">
+    <div class="text-center mb-12">
+        <h1 class="text-4xl font-bold text-gray-800 mb-4">Simplify Legal Documents with AI</h1>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">ClauseIQ helps law students, startups, and businesses understand complex legal terms, highlight potential risks, and generate plain language summaries.</p>
+    </div>
+
+    <div class="bg-white rounded-xl shadow-lg p-6 mb-12">
+        <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Analyze Your Legal Document</h2>
+        <form action="/upload" method="POST" enctype="multipart/form-data" class="space-y-6" id="upload-form">
+            <div>
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="document">
+                    Upload Document
+                </label>
+                <div class="flex items-center justify-center w-full">
+                    <label id="drop-area" for="document" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100">
+                        <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                            <i class="fas fa-cloud-upload-alt fa-3x text-gray-400 mb-3"></i>
+                            <p class="mb-2 text-sm text-gray-500"><span class="font-semibold">Click to upload</span> or drag and drop</p>
+                            <p class="text-xs text-gray-500">PDF, DOC, DOCX (MAX. 16MB)</p>
+                        </div>
+                        <input id="document" name="document" type="file" class="hidden" accept=".pdf,.doc,.docx" onchange="updateFileName()" />
+                    </label>
+                </div>
+                <p id="file-name" class="text-gray-500 text-xs mt-2 hidden">Selected file: <span id="file-name-text"></span></p>
+                <p class="text-gray-500 text-xs mt-2">Supported formats: PDF, DOC, DOCX</p>
+            </div>
+            
+            <button type="submit" 
+                    class="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-bold py-3 px-4 rounded-lg focus:outline-none focus:shadow-outline transform hover:scale-105 transition duration-300 ease-in-out"
+                    id="analyze-btn">
+                <i class="fas fa-magic mr-2"></i> Analyze Document with AI
+            </button>
+        </form>
+    </div>
+
+    <!-- Loading indicator (hidden by default) -->
+    <div id="loading-indicator" class="hidden bg-white rounded-xl shadow-lg p-8 mb-12 text-center">
+        <div class="flex justify-center mb-4">
+            <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-indigo-600"></div>
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 mb-2">Analyzing Your Document</h3>
+        <p class="text-gray-600">Our AI is processing your document. This may take a few moments...</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        <div class="bg-white rounded-lg shadow-md p-6 text-center">
+            <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-file-contract text-indigo-600 text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Clause Extraction</h3>
+            <p class="text-gray-600">Automatically identify and extract key clauses from your legal documents.</p>
+        </div>
+        <div class="bg-white rounded-lg shadow-md p-6 text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-language text-green-600 text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Plain Language</h3>
+            <p class="text-gray-600">Get complex legal terms translated into simple, understandable language.</p>
+        </div>
+        <div class="bg-white rounded-lg shadow-md p-6 text-center">
+            <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-exclamation-triangle text-red-600 text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Risk Flagging</h3>
+            <p class="text-gray-600">Identify potential risks and problematic clauses that need attention.</p>
+        </div>
+    </div>
+
+    <div class="bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl shadow-lg p-8 text-white">
+        <div class="max-w-2xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-4">Perfect for Law Students, Startups & Businesses</h2>
+            <p class="text-xl mb-6">Save hours of legal review time and make informed decisions with confidence.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <span class="bg-white bg-opacity-20 px-4 py-2 rounded-full">Non-Disclosure Agreements</span>
+                <span class="bg-white bg-opacity-20 px-4 py-2 rounded-full">Employment Contracts</span>
+                <span class="bg-white bg-opacity-20 px-4 py-2 rounded-full">Service Agreements</span>
+                <span class="bg-white bg-opacity-20 px-4 py-2 rounded-full">Lease Agreements</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Function to update the file name display
+function updateFileName() {
+    const fileInput = document.getElementById('document');
+    const fileNameDisplay = document.getElementById('file-name');
+    const fileNameText = document.getElementById('file-name-text');
+    
+    if (fileInput.files.length > 0) {
+        fileNameText.textContent = fileInput.files[0].name;
+        fileNameDisplay.classList.remove('hidden');
+    } else {
+        fileNameDisplay.classList.add('hidden');
+    }
+}
+
+// Show loading indicator when form is submitted
+document.getElementById('upload-form').addEventListener('submit', function() {
+    document.getElementById('upload-form').classList.add('hidden');
+    document.getElementById('loading-indicator').classList.remove('hidden');
+});
+
+// Drag and drop functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const dropArea = document.getElementById('drop-area');
+    const fileInput = document.getElementById('document');
+    
+    // Prevent default drag behaviors
+    ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+        dropArea.addEventListener(eventName, preventDefaults, false);
+        document.body.addEventListener(eventName, preventDefaults, false);
+    });
+    
+    // Highlight drop area when item is dragged over it
+    ['dragenter', 'dragover'].forEach(eventName => {
+        dropArea.addEventListener(eventName, highlight, false);
+    });
+    
+    ['dragleave', 'drop'].forEach(eventName => {
+        dropArea.addEventListener(eventName, unhighlight, false);
+    });
+    
+    // Handle dropped files
+    dropArea.addEventListener('drop', handleDrop, false);
+    
+    function preventDefaults(e) {
+        e.preventDefault();
+        e.stopPropagation();
+    }
+    
+    function highlight() {
+        dropArea.classList.add('bg-indigo-50', 'border-indigo-500');
+    }
+    
+    function unhighlight() {
+        dropArea.classList.remove('bg-indigo-50', 'border-indigo-500');
+    }
+    
+    function handleDrop(e) {
+        const dt = e.dataTransfer;
+        const files = dt.files;
+        
+        if (files.length) {
+            fileInput.files = files;
+            updateFileName();
+        }
+    }
+});
+</script>
+{% endblock %}

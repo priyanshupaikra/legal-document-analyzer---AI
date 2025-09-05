@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto">
+    <div class="text-center mb-12">
+        <h1 class="text-4xl font-bold text-gray-800 mb-4">About ClauseIQ</h1>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">Learn more about our mission to simplify legal documents with AI technology.</p>
+    </div>
+
+    <div class="bg-white rounded-xl shadow-lg p-8 mb-12">
+        <div class="prose prose-lg max-w-none">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Our Mission</h2>
+            <p class="text-gray-600 mb-6">At ClauseIQ, we believe that understanding legal documents shouldn't require a law degree. Our mission is to democratize legal understanding by making complex legal language accessible to everyone through the power of artificial intelligence.</p>
+            
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">What We Do</h2>
+            <p class="text-gray-600 mb-6">ClauseIQ is an AI-powered legal document analyzer that helps individuals and businesses understand the complex terms and potential risks in their legal documents. Whether you're a law student, startup founder, or business professional, our platform provides plain-language explanations of legal clauses, highlights potential risks, and offers actionable suggestions.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
+                <div class="bg-indigo-50 p-6 rounded-lg text-center">
+                    <i class="fas fa-file-contract text-indigo-600 text-3xl mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Clause Extraction</h3>
+                    <p class="text-gray-600">Automatically identify and extract key clauses from complex legal documents.</p>
+                </div>
+                <div class="bg-green-50 p-6 rounded-lg text-center">
+                    <i class="fas fa-language text-green-600 text-3xl mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Plain Language</h3>
+                    <p class="text-gray-600">Translate complex legal terms into simple, understandable language.</p>
+                </div>
+                <div class="bg-red-50 p-6 rounded-lg text-center">
+                    <i class="fas fa-exclamation-triangle text-red-600 text-3xl mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Risk Flagging</h3>
+                    <p class="text-gray-600">Identify potential risks and problematic clauses that need attention.</p>
+                </div>
+            </div>
+            
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">How It Works</h2>
+            <p class="text-gray-600 mb-6">Our platform uses advanced natural language processing and machine learning models to analyze legal documents. We leverage Google's Gemini AI to understand context, extract meaning, and provide actionable insights. The system is continuously learning and improving to better serve our users.</p>
+            
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Who We Serve</h2>
+            <p class="text-gray-600 mb-6">ClauseIQ is designed for a wide range of users:</p>
+            <ul class="list-disc list-inside text-gray-600 space-y-2 mb-6">
+                <li><strong>Law Students:</strong> Quickly understand complex legal documents and case materials</li>
+                <li><strong>Startup Founders:</strong> Review contracts and agreements without expensive legal fees</li>
+                <li><li><strong>Small Businesses:</strong> Understand the terms they're agreeing to in vendor contracts</li>
+                <li><strong>Freelancers:</strong> Review client agreements and protect their interests</li>
+                <li><strong>HR Professionals:</strong> Analyze employment contracts and policies</li>
+                <li><strong>Anyone:</strong> Who needs to understand a legal document but doesn't have a law degree</li>
+            </ul>
+            
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">The Team</h2>
+            <div class="bg-gray-50 p-6 rounded-lg mb-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-2">Priyanshu Paikra</h3>
+                <p class="text-gray-600 mb-3">Founder & Lead Developer</p>
+                <p class="text-gray-600">Priyanshu is a software engineer with a passion for making technology accessible to everyone. With a background in both computer science and an interest in legal technology, he created ClauseIQ to bridge the gap between complex legal language and everyday understanding. When he's not coding, you can find him reading about AI advancements or contributing to open-source projects.</p>
+            </div>
+            
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Our Technology</h2>
+            <p class="text-gray-600 mb-6">ClauseIQ is built on modern web technologies with a focus on performance and user experience:</p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                <div class="bg-blue-50 p-4 rounded-lg text-center">
+                    <i class="fab fa-python text-blue-600 text-2xl mb-2"></i>
+                    <p class="text-gray-700 font-medium">Python</p>
+                </div>
+                <div class="bg-green-50 p-4 rounded-lg text-center">
+                    <i class="fab fa-google text-green-600 text-2xl mb-2"></i>
+                    <p class="text-gray-700 font-medium">Google Gemini</p>
+                </div>
+                <div class="bg-yellow-50 p-4 rounded-lg text-center">
+                    <i class="fab fa-js text-yellow-600 text-2xl mb-2"></i>
+                    <p class="text-gray-700 font-medium">JavaScript</p>
+                </div>
+                <div class="bg-purple-50 p-4 rounded-lg text-center">
+                    <i class="fab fa-html5 text-purple-600 text-2xl mb-2"></i>
+                    <p class="text-gray-700 font-medium">HTML/CSS</p>
+                </div>
+            </div>
+            
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Contact Us</h2>
+            <p class="text-gray-600 mb-6">We'd love to hear from you! Whether you have feedback, suggestions, or just want to say hello, feel free to reach out:</p>
+            <div class="flex flex-wrap gap-4">
+                <a href="mailto:priyanshup1243@gmailcom" class="inline-flex items-center px-4 py-2 bg-indigo-100 text-indigo-700 rounded-lg hover:bg-indigo-200 transition">
+                    <i class="fas fa-envelope mr-2"></i> priyanshup1243@gmail.com
+                </a>
+                <a href="#" class="inline-flex items-center px-4 py-2 bg-indigo-100 text-indigo-700 rounded-lg hover:bg-indigo-200 transition">
+                    <i class="fab fa-twitter mr-2"></i> @ClauseIQ
+                </a>
+                <a href="#" class="inline-flex items-center px-4 py-2 bg-indigo-100 text-indigo-700 rounded-lg hover:bg-indigo-200 transition">
+                    <i class="fab fa-github mr-2"></i> GitHub
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl shadow-lg p-8 text-white text-center">
+        <h2 class="text-3xl font-bold mb-4">Join Our Community</h2>
+        <p class="text-xl mb-6">Be part of the movement to make legal documents understandable for everyone</p>
+        <a href="{{ url_for('home') }}" class="inline-block bg-white text-indigo-600 font-bold py-3 px-6 rounded-lg hover:bg-gray-100 transition duration-300">
+            Get Started with ClauseIQ
+        </a>
+    </div>
+</div>
+{% endblock %}

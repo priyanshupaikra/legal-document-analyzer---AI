@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto">
+    <div class="text-center mb-12">
+        <h1 class="text-4xl font-bold text-gray-800 mb-4">How ClauseIQ Works</h1>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">Understanding the simple steps to analyze your legal documents with our AI-powered platform.</p>
+    </div>
+
+    <div class="bg-white rounded-xl shadow-lg p-8 mb-12">
+        <div class="space-y-12">
+            <!-- Step 1 -->
+            <div class="flex flex-col md:flex-row gap-8 items-center">
+                <div class="flex-shrink-0 w-16 h-16 rounded-full bg-indigo-100 flex items-center justify-center">
+                    <span class="text-2xl font-bold text-indigo-600">1</span>
+                </div>
+                <div class="flex-grow">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-3">Upload Your Document</h2>
+                    <p class="text-gray-600 mb-4">Start by uploading your legal document. We support common formats including PDF, DOC, and DOCX files.</p>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-medium text-gray-700 mb-2">Supported Document Types:</h3>
+                        <ul class="list-disc list-inside text-gray-600 space-y-1">
+                            <li>Non-Disclosure Agreements (NDAs)</li>
+                            <li>Employment Contracts</li>
+                            <li>Service Agreements</li>
+                            <li>Lease Agreements</li>
+                            <li>Partnership Agreements</li>
+                            <li>Terms of Service</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="flex flex-col md:flex-row gap-8 items-center">
+                <div class="flex-shrink-0 w-16 h-16 rounded-full bg-indigo-100 flex items-center justify-center">
+                    <span class="text-2xl font-bold text-indigo-600">2</span>
+                </div>
+                <div class="flex-grow">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-3">AI Analysis</h2>
+                    <p class="text-gray-600 mb-4">Our advanced AI powered by Google's Gemini technology analyzes your document, extracting key clauses and identifying potential risks.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                        <div class="bg-indigo-50 p-4 rounded-lg text-center">
+                            <i class="fas fa-file-contract text-indigo-600 text-2xl mb-3"></i>
+                            <h3 class="font-bold text-gray-800">Clause Extraction</h3>
+                        </div>
+                        <div class="bg-green-50 p-4 rounded-lg text-center">
+                            <i class="fas fa-exclamation-triangle text-green-600 text-2xl mb-3"></i>
+                            <h3 class="font-bold text-gray-800">Risk Assessment</h3>
+                        </div>
+                        <div class="bg-purple-50 p-4 rounded-lg text-center">
+                            <i class="fas fa-language text-purple-600 text-2xl mb-3"></i>
+                            <h3 class="font-bold text-gray-800">Plain Language Translation</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="flex flex-col md:flex-row gap-8 items-center">
+                <div class="flex-shrink-0 w-16 h-16 rounded-full bg-indigo-100 flex items-center justify-center">
+                    <span class="text-2xl font-bold text-indigo-600">3</span>
+                </div>
+                <div class="flex-grow">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-3">Review Analysis</h2>
+                    <p class="text-gray-600 mb-4">Get a comprehensive breakdown of your document with clear explanations of each clause, risk levels, and suggestions.</p>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2 mt-4">
+                        <li>Detailed document summary</li>
+                        <li>Key clause identification with plain language explanations</li>
+                        <li>Risk level classification (High, Medium, Low)</li>
+                        <li>Specific suggestions for improvement</li>
+                        <li>Interactive chat assistant for specific questions</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="flex flex-col md:flex-row gap-8 items-center">
+                <div class="flex-shrink-0 w-16 h-16 rounded-full bg-indigo-100 flex items-center justify-center">
+                    <span class="text-2xl font-bold text-indigo-600">4</span>
+                </div>
+                <div class="flex-grow">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-3">Take Action</h2>
+                    <p class="text-gray-600 mb-4">Use the insights to make informed decisions about your legal documents. Discuss findings with your legal team or use our suggestions to revise documents.</p>
+                    <div class="mt-6 flex flex-wrap gap-3">
+                        <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm">Download Report</span>
+                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Share Analysis</span>
+                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Chat with Assistant</span>
+                        <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">Export Summary</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl shadow-lg p-8 text-white text-center">
+        <h2 class="text-3xl font-bold mb-4">Ready to Simplify Your Legal Documents?</h2>
+        <p class="text-xl mb-6">Join thousands of law students, startups, and businesses using ClauseIQ</p>
+        <a href="{{ url_for('home') }}" class="inline-block bg-white text-indigo-600 font-bold py-3 px-6 rounded-lg hover:bg-gray-100 transition duration-300">
+            Get Started Now
+        </a>
+    </div>
+</div>
+{% endblock %}
